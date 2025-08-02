@@ -1,3 +1,5 @@
+import { Platform } from "react-native";
+
 const theme = {
   colors: {
     textPrimary: "#24292e",
@@ -7,13 +9,18 @@ const theme = {
     white: "#ffffff",
     separator: "#e1e4e8", // Light grey for separators
     background: "#f6f8fa", // A light background for the general app/list
+    error: "#d73a4a", // Error color for validation messages
   },
   fontSizes: {
     body: 14,
     subheading: 16,
   },
   fonts: {
-    main: "System", // Default system font
+    color: Platform.select({
+      android: "Roboto",
+      ios: "Arial",
+      default: "System",
+    }),
   },
   fontWeights: {
     normal: "400",
